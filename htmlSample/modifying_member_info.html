@@ -3,14 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style_header.css">
-		<link rel="stylesheet" type="text/css" href="css/style_join02_info_input.css">
+		<link rel="stylesheet" type="text/css" href="css/style_modifing_member_info.css">
 		<link rel="stylesheet" type="text/css" href="css/style_footer.css">
-		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-		<title>회원가입 - 회원정보입력</title>
-		<style>
-			.on{color:green;}
-			.off{color:tomato;}
-		</style>
+		<title>개인정보수정</title>
 	</head>
 	<body>
 		<header>
@@ -48,35 +43,18 @@
 		
 		
 		<section>
-			<form name="agree" method="get" action="join03_success.html">
+			<form name="agree" method="get" action="#">
 				<div id="subBanner"></div>
 				<div id="locationN">
 					<ul>
 						<li>HOME</li>
-						<li>회원가입</li>
-						<li>회원정보입력</li>
+						<li>마이페이지</li>
+						<li>개인정보수정</li>
 					</ul>
 				</div>
 				
 				<div id="sub_top_area">
-					<h3>회원가입</h3>
-				</div>
-				
-				<div id="join_step_div">
-					<ul>
-						<li>
-							<span>STEP.1</span>
-							<p>약관동의</p>
-						</li>
-						<li>
-							<span>STEP.2</span>
-							<p>회원정보</p>
-						</li>
-						<li>
-							<span>STEP.3</span>
-							<p>회원가입완료</p>
-						</li>
-					</ul>
+					<h3>개인정보수정</h3>
 				</div>
 				
 				<h4>
@@ -84,43 +62,25 @@
 					<span>(* 항목은 필수 항목입니다.)</span>
 				</h4>
 				<fieldset class="fieldset_class">
-					<dl id="join_name_dl">
+					<dl id="modify_name_dl">
 						<dt>
 							<div></div>
 							<label for="name">이름</label>
 						</dt>
 						<dd>
-							<input type="text" id="name" name="name" required/>
+							홍길동
 						</dd>
 					</dl>
-					<dl id="join_id_dl">
+					<dl id="modify_id_dl">
 						<dt>
 							<div></div>
 							<label for="id">아이디</label>
 						</dt>
 						<dd>
-							<input type="text" id="id" name="id" minlength="4" maxlength="16" required/>
-							<button type="button">중복확인</button>
-							<span>4~16자리의 영문, 숫자, 특수기호(_)만 사용하실 수 있습니다.</span>
-							<span>첫 글자는 영문으로 입력해 주세요.</span>
+							honghong
 						</dd>
 					</dl>
-					<script>
-						function pwCheck(){
-							var pw1 = document.getElementById("pw1").value;
-							var pw2 = document.getElementById("pw2").value;
-							if(pw1 == pw2){
-								document.getElementById("pwTxt").innerText = "비밀번호가 일치합니다.";
-								document.getElementById("pwTxt").classList.remove("off");
-								document.getElementById("pwTxt").classList.add("on");
-							}else{
-								document.getElementById("pwTxt").innerText = "비밀번호가 일치하지 않습니다.";
-								document.getElementById("pwTxt").classList.remove("on");
-								document.getElementById("pwTxt").classList.add("off");
-							}
-						}
-					</script>
-					<dl id="join_pw1_dl">
+					<dl id="modify_pw1_dl">
 						<dt>
 							<div></div>
 							<label for="pw1">비밀번호</label>
@@ -131,26 +91,25 @@
 							<span>영문, 숫자, 특수문자 모두 조합 시 8자리 이상 입력</span>
 						</dd>
 					</dl>
-					<dl id="join_pw2_dl">
+					<dl id="modify_pw2_dl">
 						<dt>
 							<div></div>
 							<label for="pw2">비밀번호 확인</label>
 						</dt>
 						<dd>
-							<input type="password" id="pw2" name="pw2" minlength="8" required onkeyup="pwCheck()" />
+							<input type="password" id="pw2" name="pw2" minlength="8" required />
 							<span>비밀번호를 다시 한번 입력해 주세요.</span>
-							<span id="pwTxt"></span>
 						</dd>
 					</dl>
-					<dl id="join_mail_dl">
+					<dl id="modify_mail_dl">
 						<dt>
 							<div></div>
 							<label for="mail_id">이메일</label>
 						</dt>
 						<dd>
-							<input type="text" id="mail_id" name="mail_id" required />
+							<input type="text" id="mail_id" name="mail_id" value="aaaa" required />
 							<span>@</span>
-							<input type="text" id="main_tail" name="mail_tail" required />
+							<input type="text" id="main_tail" name="mail_tail" value="gmain.com" required />
 							<select>
 								<option selected>직접입력</option>
 								<option>지메일</option>
@@ -165,57 +124,47 @@
 							</select>
 						</dd>
 					</dl>
-					<script>
-						function addBtn(){
-							new daum.Postcode({
-       				oncomplete: function(data) {
-							document.getElementById("f_postal").value = data.zonecode;
-							document.getElementById("address1").value = data.address;
-							document.getElementById("address2").value = data.addressEnglish;
-        }
-    }).open();
-						}
-					</script>
-					<dl id="join_address_dl">
+					
+					<dl id="modify_address_dl">
 						<dt> 
 							<div></div>
 							<label for="">주소</label>
 						</dt>
 						<dd>
-							<input type="text" id="f_postal" name="f_postal" required />
+							<input type="text" id="f_postal" name="f_postal" value="12345" required />
 							<span>-</span>
 							<input type="text" id="l_postal" name="l_postal" required />
-							<button type="button" onclick="addBtn()">우편번호</button>
-							<input type="text" id="address1" name="address1" required />
-							<input type="text" id="address2" name="address2" required />
+							<input type="button" value="우편번호"/>
+							<input type="text" id="address1" name="address1" value="서울시 금천구 가산디지털1로 186." required />
+							<input type="text" id="address2" name="address2" value="(가산동. 제이플라츠 5F. 515,516호)" required />
 						</dd>
 						
 					</dl>
 					
-					<dl id="join_tell_dl">
+					<dl id="modify_tell_dl">
 						<dt>
 							<div></div>
 							<label for="f_tell">휴대전화</label>
 						</dt>
 						<dd>
-							<input type="text" id="f_tell" name="f_tell" maxlength="3" required />
+							<input type="text" id="f_tell" name="f_tell" maxlength="3" value="010" required />
 							<span> - </span>
-							<input type="text" id="m_tell" name="m_tell" maxlength="4" required />
+							<input type="text" id="m_tell" name="m_tell" maxlength="4" value="1234" required />
 							<span> - </span>
-							<input type="text" id="l_tell" name="l_tell" maxlength="4" required />
+							<input type="text" id="l_tell" name="l_tell" maxlength="4" value="5678" required />
 						</dd>
 					</dl>
-					<dl id="join_birth_dl">
+					<dl id="modify_birth_dl">
 						<dt>
 							<div></div>
 							<label for="birth_year">생년월일</label>
 						</dt>
 						<dd>
 							<select id="birth_year" name="birth_year" required>
-								<option selected>선택</option>
+								<option >선택</option>
 								<option value="1988">1988</option>
 								<option value="1989">1989</option>
-								<option value="1990">1990</option>
+								<option selected value="1990">1990</option>
 								<option value="1991">1991</option>
 								<option value="1992">1992</option>
 								<option value="1993">1993</option>
@@ -229,10 +178,10 @@
 							</select>
 							<span>년</span>
 							<select id="birth_month" name="birth_month" required>
-								<option selected>선택</option>
+								<option >선택</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
-								<option value="3">3</option>
+								<option selected value="3">3</option>
 								<option value="4">4</option>
 								<option value="5">5</option>
 								<option value="6">6</option>
@@ -245,11 +194,11 @@
 							</select>
 							<span>월</span>
 							<select id="birth_day" name="birth_day" required>
-								<option selected>선택</option>
+								<option >선택</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
-								<option value="4">4</option>
+								<option selected value="4">4</option>
 								<option value="5">5</option>
 								<option value="6">6</option>
 								<option value="7">7</option>
@@ -266,7 +215,7 @@
 							</div>
 						</dd>
 					</dl>
-					<dl id="join_gender_dl">
+					<dl id="modify_gender_dl">
 						<dt>
 							<div></div>
 							<label for="">성별</label>
@@ -280,7 +229,7 @@
 							</div>
 						</dd>
 					</dl>
-					<dl id="join_newsletter_dl">
+					<dl id="modify_newsletter_dl">
 						<dt>
 							<div></div>
 							<label for="">뉴스레터 수신여부</label>
@@ -295,7 +244,7 @@
 							</div>
 						</dd>
 					</dl>
-					<dl id="join_sms_dl">
+					<dl id="modify_sms_dl">
 						<dt>
 							<div></div>
 							<label for="">SMS 수신여부</label>
@@ -318,21 +267,21 @@
 					<span>(다구좌 회원일 경우 가지고 계신 카드번호 중 하나를 입력해 주시면 됩니다)</span>
 				</h4>
 				<fieldset class="fieldset_class">
-					<dl id="join_member_number_dl">
+					<dl id="modify_member_number_dl">
 						<dt>
 							<label for="m_number">회원번호</label>
 						</dt>
 						<dd>
-							<input type="text" name="m_number" id="m_number" />
+							<input type="text" name="m_number" id="m_number" value="12341234" />
 							<span>하이픈(-)이나 띄어쓰기 없이 입력해 주시기 바랍니다.</span>
 						</dd>
 					</dl>
-					<dl id="join_verification_number_dl">
+					<dl id="modify_verification_number_dl">
 						<dt>
 							<label for="v_number">회원인증번호</label>
 						</dt>
 						<dd>
-							<input type="text" name="v_number" id="v_number" />
+							<input type="text" name="v_number" id="v_number" value="a1b2c3d4"/>
 							<span>숫자 4자리 입력</span>
 						</dd>
 					</dl>
@@ -342,7 +291,7 @@
 					선택 입력 정보 
 				</h4>
 				<fieldset class="fieldset_class">
-					<dl id="join_job_dl">
+					<dl id="modify_job_dl">
 						<dt>
 							<label for="job">직업</label>
 						</dt>
@@ -353,34 +302,34 @@
 								<option value="slef">자영업자</option>
 								<option value="freelancer">프리랜서</option>
 								<option value="housewife">전업주부</option>
-								<option value="student">학생</option>
+								<option selected value="student">학생</option>
 								<option value="etc">기타</option>						
 							</select>
 						</dd>
 					</dl>
-					<dl id="join_marital_status_dl">
+					<dl id="modify_marital_status_dl">
 						<dt>
 							<label for="">결혼여부</label>
 						</dt>
 						<dd>
 							<input type="radio" name="marital_status" id="marital_status_y" value="yes" />
 							<label for="marital_status_y">예</label>
-							<input type="radio" name="marital_status" id="marital_status_n" value="no" />
+							<input type="radio" name="marital_status" id="marital_status_n" value="no" checked/>
 							<label for="marital_status_n">아니오</label>
 						</dd>
 					</dl>
-					<dl id="join_interests_dl">
+					<dl id="modify_interests_dl">
 						<dt>
 							<label for="">관심사</label>
 						</dt>
 						<dd>
 							<ul>
 								<li>
-									<input type="checkbox" name="computer" id="computer" value="computer" />
+									<input type="checkbox" name="computer" id="computer" value="computer" checked/>
 									<label for="computer">컴퓨터/인터넷</label>
 								</li>
 								<li>
-									<input type="checkbox" name="movie" id="movie" value="movie" />
+									<input type="checkbox" name="movie" id="movie" value="movie" checked/>
 									<label for="movie">영화/비디오</label>
 								</li>
 								<li>
@@ -392,7 +341,7 @@
 									<label for="shopping">쇼핑</label>
 								</li>
 								<li>
-									<input type="checkbox" name="game" id="game" value="game" />
+									<input type="checkbox" name="game" id="game" value="game" checked/>
 									<label for="game">게임</label>
 								</li>
 								<li>
@@ -404,7 +353,7 @@
 									<label for="parenting">육아/아동</label>
 								</li>
 								<li>
-									<input type="checkbox" name="cooking" id="cooking" value="cooking" />
+									<input type="checkbox" name="cooking" id="cooking" value="cooking" checked/>
 									<label for="parenting">요리</label>
 								</li>
 								<li>
@@ -420,7 +369,7 @@
 									<label for="health">건강/다이어트</label>
 								</li>
 								<li>
-									<input type="checkbox" name="fashion" id="fashion" value="fashion" />
+									<input type="checkbox" name="fashion" id="fashion" value="fashion" checked/>
 									<label for="fashion">패션/미용</label>
 								</li>
 							</ul>
@@ -429,7 +378,7 @@
 				</fieldset>
 				<div id="info_input_button">
 					<input type="reset" value="취소하기" />
-					<input type="submit" value="가입하기" />
+					<input type="submit" value="수정하기" />
 				</div>
 				
 			</form>
