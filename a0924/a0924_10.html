@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수선언 방법 3가지</title>
+</head>
+<body>
+  <script>
+    function c_input(){
+      document.write("hello");
+    }
+    a_input = function(){
+      document.write("bye");
+    }
+    //화살표 함수
+    b_input = () => {
+      document.write("안녕!!");
+    }
+  </script>
+  <button onclick="c_input()">확인</button>
+  <button onclick="a_input()">확인</button>
+  <button onclick="b_input()">확인</button>
+</body>
+</html>
