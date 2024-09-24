@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고정형 그리드</title>
+  <style>
+    *{margin:0; padding:0;}
+    #container{width: 1200px; height:900px; margin:0 auto; border:1px solid black;}
+    header{width:1200px; height:120px; background: rgb(93, 116, 182);
+      font-size: 40px; text-align: center; color:white; line-height: 120px; 
+    }
+    section{width:1200px; height:600px; display: flex;}
+    .cont1{width:800px; height:600px; background: rgb(209, 161, 73);}
+    .cont2{width:400px; height:600px; background: rgb(132, 158, 72);}
+    footer{width:1200px; height:180px; background: rgb(140, 149, 165);}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <header>고정형 그리드</header>
+    <section>
+      <div class="cont1"></div>
+      <div class="cont2"></div>
+    </section>
+    <footer></footer>
+  </div>
+</body>
+</html>

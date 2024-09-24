@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열</title>
+</head>
+<body>
+  <script>
+
+    // 배열선언 var arr = [];    var arr = new Array();
+    // push - 추가, pop - 삭제
+    // join - 배열 -> 1개의 문자열 변환, split - 문자열 -> 배열로 변환
+
+
+
+    //join-배열의 데이터를 1개로 묶기, split-문자열을 구분자로 분리해서 배열리턴
+    var arr = ['바람','비','물'];
+    console.log(arr);
+    // join - 1개의 문자열로 바꿈
+    var txt = arr.join(','); //배열을 문자열로 변경 //',' ' ' - 구분자를 사용하여 한 줄의 문자열로 정리
+    console.log(txt);
+    // console.log(arr.join(','));
+    console.log(arr);
+
+    var str = '아이디,상품아이디,키워드아이디,등록일자,수정일자';
+    console.log(typeof(str));
+    var str2 = str.split(","); //문자열을 배열로 변경
+    console.log(str2);
+
+
+    // var arr = [];
+    // arr[0] = 1;
+    // arr[1] = 50;
+    // arr[2] = 3;
+    // arr[3] = 9;
+    // arr[4] = 4;
+    // for(var i=0;i<arr.length;i++){
+    //   console.log(arr[i]);
+    // }
+
+    // //sort - 오름차순 순차 정렬 - 숫자 자릿수가 같아야 된다. 한자리 두자리 섞여있으면 정렬이 안됨(첫번째 자리만 비교하기때문) -> 해결방법 sort((a,b)=>a-b) 을 입력해 준다.
+    // arr.sort((a,b)=>a-b);
+    // console.log(arr);
+    
+    // //reverse - 역순 정렬
+    // arr.reverse(); //reverse는 sort로 순차정렬 해놓고 써야 편하고 잘 된다
+    // console.log(arr);
+
+
+    // //push,pop
+    // console.log(arr);
+    // //arr[5] = 60; //배열추가 방법1
+    // arr.push(60);  //배열추가 방법2 - push**
+    // console.log(arr);
+
+    // arr[2] = 100; //배열 값 수정
+    // console.log(arr);
+
+    //배열 데이터 추가, 삭제는 제일 뒤에 있는 거만 가능 - 중간 배열값은 불가
+
+    // // pop - 마지막 배열 삭제 - 데이터,공간 모두 삭제**
+    // console.log(arr);
+    // arr.pop();
+    // console.log(arr);
+
+
+    // // 배열삭제 - delete
+    // console.log(arr);
+    // delete arr[2]; //배열삭제 - 데이터는 지우지만 데이터 공간은 남아있음
+    // console.log(arr);
+    // console.log(arr[2]);
+
+
+    // //배열선언, 배열출력
+    // var arr = [30,"따르릉",true,20,50,100,555]; //숫자형, 문자형, 논리형 타입
+    // for(var i=0;i<arr.length;i++){             //배열의 길이 : arr.length
+    //   console.log(arr[i]);
+    // }
+
+    // console.log(arr.length);
+  </script>
+
+</body>
+</html>
