@@ -22,7 +22,7 @@ $(function(){
         p_data +=`<td>${id[i].galTitle}</td>`
         p_data +=`<td>${id[i].galPhotographer}</td>`
         p_data +=`<td>${id[i].galModifiedtime}</td>`
-        p_data +=`<td><img src=${id[i].galWebImageUrl}></td>`
+        p_data +=`<td><img src="${id[i].galWebImageUrl}"></td>`
         p_data +=`</tr'>`
         }
         $("#tbody").html(p_data);
