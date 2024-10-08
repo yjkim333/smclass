@@ -22,4 +22,4 @@ for i in range(3):
 code = input("좌표입력 (0.0)>>")
 cArr = code.split(".")
 # print(cArr)
-print(f"좌표의 값 : "{a_list[int(cArr[0])][int(cArr[1])]})
+print(f"좌표의 값 : ",{a_list[int(cArr[0])][int(cArr[1])]})
