@@ -139,7 +139,7 @@ while True:
     name = input("찾고자 하는 학생의 이름을 입력하세요.")
     chk = 0
     for idx,s in enumerate(students):
-      if s[1] == name:
+      if s['name'] == name:
         chk = 1
         choice = input(f"{name} 학생성적을 삭제하시겠습니까?(삭제시 복구불가)\n1.삭제 2.취소")
         if choice == "1":
