@@ -1,10 +1,28 @@
 students = [
-	{"no":1,"name":"홍길동","kor":100,"eng":100,"math":99,"total":299,"avg":99.67,"rank":0},
-	{"no":2,"name":"유관순","kor":80,"eng":80,"math":85,"total":245,"avg":81.67,"rank":0},
-	{"no":3,"name":"이순신","kor":90,"eng":90,"math":91,"total":271,"avg":90.33,"rank":0},
-	{"no":4,"name":"강감찬","kor":60,"eng":65,"math":67,"total":192,"avg":64.00,"rank":0},
-	{"no":5,"name":"김구","kor":100,"eng":100,"math":84,"total":284,"avg":94.67,"rank":0},
+	# {"no":1,"name":"홍길동","kor":100,"eng":100,"math":99,"total":299,"avg":99.67,"rank":0},
+	# {"no":2,"name":"유관순","kor":80,"eng":80,"math":85,"total":245,"avg":81.67,"rank":0},
+	# {"no":3,"name":"이순신","kor":90,"eng":90,"math":91,"total":271,"avg":90.33,"rank":0},
+	# {"no":4,"name":"강감찬","kor":60,"eng":65,"math":67,"total":192,"avg":64.00,"rank":0},
+	# {"no":5,"name":"김구","kor":100,"eng":100,"math":84,"total":284,"avg":94.67,"rank":0},
 ]
+stu_keys = ["no","name","kor","eng","math","total","avg","rank"]
+
+# students.txt 파일 읽기
+f = open('C:\workspace\students.txt','r',encoding='utf-8')
+while True:
+	line = f.readline()
+	if not line: break
+	s = line.strip().split(",")
+	s[0] = int(s[0])
+	s[2] = int(s[2])
+	s[3] = int(s[3])
+	s[4] = int(s[4])
+	s[5] = int(s[5])
+	s[6] = float(s[6])
+	students.append(dict(zip(stu_keys,s)))
+f.close()
+#--------
+
 stuNo = len(students)  # 리스트에 학생이 있으면, 그 인원으로 변경
 choice = 0 # 전역변수
 
@@ -12,7 +30,6 @@ s_title = ['번호','이름','국어','영어','수학','합계','평균','등�
 chk = 0    # 체크변수
 count = 1  # 성적처리
 no=0;name="";kor=0;eng=0;math=0;total=0;avg=0;rank=0 #성적처리변수
-
 
 # 메뉴출력함수 선언
 def title_program():
@@ -52,13 +69,20 @@ def stu_input(stuNo):
 						 "math":math,"total":total,"avg":avg,"rank":rank }
 			students.append(ss)
 			stuNo += 1  # 학생수 1증가
+
+			# students.txt 파일에 덮어쓰기
+			f = open('C:\workspace\students.txt','w',encoding='utf-8')
+			for s in students:
+				f.write(f"{s['no']},{s['name']},{s['kor']},{s['eng']},{s['math']},{s['total']},{s['avg']},{s['rank']}\n")
+			f.close()
+			#-----
 			print(f"{name} 학생성적이 저장되었습니다.!")
 			print()
 	return stuNo
 # ---------------------------------
 
 # 2.학생성적출력함수 선언
-def stu_output():
+def stu_output(students):
 	print("[ 학생성적 출력 ]")
 	print()
 

@@ -17,7 +17,7 @@ while True:
 		stuNo = stu_input(stuNo)    	
 
 	elif choice == "2":							# 2.학생성적출력함수 호출
-		stu_output()
+		stu_output(students)
 		
 	elif choice == "3":							# 3.학생성적수정함수 호출
 		stu_update(students)
