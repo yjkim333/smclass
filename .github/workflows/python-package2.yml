@@ -1,37 +1,30 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-# 알림창
-name: 뉴스 속보 수집
+name: 최신 뉴스 모음
 
-# on - 어떤 조건일때 파일을 실행 시킬지
+# on -> 어떤 조건으로, 시점으로 실행시킬지 정의
 on:
-  # 특정시간이 될때마다 실행하는 명령어 입력
-  # cron표현식 사용
-  # 참조사이트 : https://crontab.guru/
-  # schedule :
-  #  - cron : "10 * * * *"
-
-
-  # main 이 구동 될때 마다
+  # 특정 시간이 될 때 마다 실행
+  # -> cron 표현식 사용 (참조 사이트 : https://crontab.guru/)
+  # - cron : "28 9 * * *"
+  
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-# job - 파일을 실행하는 공간
 jobs:
   build:
-
-    # 서버 실행 공간 - 깃허브의 우분투(리눅스) 환경 사용 -> 필요한 라이브러리 설치 필요함
+    # build -> 서버 실행 공간 - 깃허브 우분트 환경 사용
     runs-on: ubuntu-latest
 
+    # permissions - 권한설정
+    # contents : write => 파일 저장 권한부여
     permissions:
-      contents: write
-
-    # .yml
+      contents : write
     
-    # step별 실행 단계
+    # steps -> step(진행 단계)별 실행단계
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
@@ -40,10 +33,10 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        # 실행순서 최신버전 업그레이드
+        # 파이썬 프로그램 업그레이드 실행
         python -m pip install --upgrade pip
-
-    # 필요한 라이브러리 설치 해야함
+        
+    # 필요한 파일 설치
     - name: library install
       run: |
         pip install requests
@@ -51,31 +44,22 @@ jobs:
         pip install pandas
         pip install lxml
         
-
-    # 내가 만든 파이썬 파일 실행
+    #  내가 만든 파이썬 파일 실행
     - name: run my file
       run: |
         python3 news.py
 
     # 커밋
-    - name: Commits
+    - name: commits
       run: |
         git config --global user.email "kyjoon0105@gmail.com"
-        git config --global user.nam "yj"
-        # text 파일을 추가
+        git config --global user.name "yj"
+        # csv,txt 파일 추가
         git add news.txt
-        git commit -m "뉴스데이터 수집"
-        
-    # push 작업진행
-    - name : Push
-      uses : ad-m/github-push-action@master
-      with :
-        branch : "main"
+        git commit -m "최신 뉴스 모음"
 
-      
-        
-
-
-
-
-
+    # push 작업 실행
+    - name: push
+      uses: ad-m/github-push-action@master
+      with:
+        branch: "main"
