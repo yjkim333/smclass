@@ -1,8 +1,8 @@
 -- 주석 -> --
 -- 실행 단축키 : F9
 
--- 계정 이름 앞에 c## 생략 코드
---alter session set "_ORACLE_SCRIPT" = true;
+-- 계정 이름(ID) 앞에 c## 생략 코드
+-- alter session set "_ORACLE_SCRIPT" = true;
 
 -- 사용자 생성
 create user ora_user identified by 1111;
