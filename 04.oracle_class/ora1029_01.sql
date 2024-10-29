@@ -391,6 +391,7 @@ select * from employees where emp_name like '%l_';
 -- 첫번째 D가 들어간 이름 검색
 select * from employees where emp_name like 'D%';
 
+  
 
 
 

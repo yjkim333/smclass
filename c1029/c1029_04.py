@@ -16,7 +16,7 @@ conn = connections()
 cursor = conn.cursor()
 
 # sql = "select * from employees where emp_name like '%a%'"
-# cursor.execute(sql)
+# cursor.execute(sql)  
 
 
 # 월급이 4000-8000 사이의 사원을 모두 출력하시오

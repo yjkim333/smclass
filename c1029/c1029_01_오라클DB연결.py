@@ -40,5 +40,7 @@ for row in rows:
 
 
 
+
+
 # 종료
 conn.close()

@@ -53,6 +53,6 @@ print(a_list)
 
 a_list = [dict(zip(title,a)) for a in aa]
 print(a_list)
-
+  
 
 
