@@ -51,13 +51,6 @@ while True:
 
 		cursor.close()
 
-		# if user_id == 'aaa' and user_pw == '1111':
-		# 	print("로그인 성공!")
-		# else :
-		# 	print("로그인 실패!")
-		# 	continue
-		
-		# print("[ 학생 성적 프로그램에 접속되었습니다. ]")
 
 		# ### 프로그램 구현 ###
 
