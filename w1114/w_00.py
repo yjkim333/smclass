@@ -229,7 +229,7 @@
 # 테이블에 데이터 입력
 # python manage.py shell => cmd-sqlplus 명령어(콘솔창)와 같음
 # 
-
+### 콘솔창에서 import!
 # from students.models import Student
 # ## insert
 # qs = Student(s_name='hong1',s_major = '컴퓨터공학',s_age=20,s_grade=1,s_gender='M')
