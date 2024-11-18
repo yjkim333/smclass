@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>학생전체리스트</title>
+	<style>
+		*{margin:0; padding:0;}
+		a{color:inherit;}
+		#main{text-align:center; margin-top:50px;}
+		table{margin:30px auto;}
+		table,th,td{border:1px solid black; border-collapse:collapse;}
+		th{border-bottom:2.5px solid black;}
+		th,td{width:150px;height:42px;}
+		button{width: 150px; height:38px; text-align:center; border:1px solid black; border-radius : 8px;}
+
+	</style>
+</head>
+<body>
+	<div id='main'>
+		<h2>학생 리스트</h2>
+		{% comment %} <h2>{{ slist }}</h2> {% endcomment %}
+		<table>
+			<tr>
+				<th>이름</th>
+				<th>학과</th>
+				<th>학년</th>
+				<th>수정</th>
+				<th>삭제</th>
+			</tr>
+			{% if slist %}
+				{% for s in slist %}
+				<tr>
+					{% comment %}
+					html 에서 views로 보내는 방법
+					1. form
+					2. appname
+					3. parameter
+					{% endcomment %}
+					{% comment %} {% url 'students:view' s.name %} 'students:view'로 보낼때 s.name을 같이 보내겠다 {% endcomment %}
+					<td><a href="{% url 'students:view' s.name %}">{{s.name}}</a></td>
+					<td>{{s.major}}</td>
+					<td>{{s.grade}}</td>
+					<td><a href="">수정</a></td>
+					<td><a href="">삭제</a></td>
+				</tr>
+				{% endfor %}
+			{% else %}
+				<tr>
+					<td colspan='5'>저장된 데이터가 없습니다.</td>
+				</tr>
+			{% endif %}
+		</table>
+		<a href='/'><button>HOME</button></a>
+		<a href='/students/write/'><button>학생등록</button></a>
+
+	</div>
+	
+</body>
+</html>
