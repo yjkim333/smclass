@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>학생상세정보</title>
+	<style>
+		*{margin:0; padding:0;}
+		.main{margin:30px auto; text-align:center;}
+		table,th,td{margin:30px auto; border:1px solid black; border-collapse:collapse;}
+		table{width: 600px; text-align:center;}
+		th{background-color:#efefef}
+		.c01{width: 100px; height:34px; background-color:#efefef}
+		.c02{width: 200px; height:34px;}
+		td{height:34px;}
+		.btn{width: 140px; height: 42px; margin-top:10px; border:1px solid #ccc; border-radius:8px;}
+	</style>
+</head>
+<body>
+	<div class='main'>
+		<h2>{{stu.name}} 학생 정보</h2>
+		{% comment %} <h2>{{stu}}</h2> {% endcomment %}
+		<table>
+			<tr>
+				<th class='c01'>항목</th>
+				<th class='c02'>내용</th>
+			</tr>
+			<tr>
+				<td>번호</td>
+				<td>{{stu.id}}</td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td>{{stu.name}}</td>
+			</tr>
+			<tr>
+				<td>학과</td>
+				<td>{{stu.major}}</td>
+			</tr>
+			<tr>
+				<td>학년</td>
+				<td>{{stu.grade}}</td>
+			</tr>
+			<tr>
+				<td>나이</td>
+				<td>{{stu.age}}</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td>{{stu.gender}}</td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>{{stu.hobby}}</td>
+			</tr>
+		</table>
+		<button type='button' onclick='location.href="/"' class='btn'>홈으로</button>
+		<button type='button' onclick='location.href="/students/list"' class='btn'>리스트</button>
+		<button type='button' onclick='location.href="/students/name?{{stu.name}}/update"' class='btn'>수정</button>
+		<button type='button' onclick='location.href=""' class='btn'>삭제</button>
+	</div>
+
+</body>
+</html>

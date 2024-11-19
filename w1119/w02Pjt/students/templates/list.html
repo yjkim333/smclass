@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>전체학생리스트</title>
+	<style>
+		*{margin:0; padding:0;}
+		.main{margin:30px auto; text-align:center;}
+		table,th,td{margin:30px auto; border:1px solid black; border-collapse:collapse;}
+		table{width: 1200px; text-align:center;}
+		th{width: 200px; height:34px; background-color:#efefef}
+		td{width: 200px; height:34px;}
+		a{color:inherit;}
+		select{width: 173px;}
+		.btn{width: 160px; height: 42px; margin-top:10px; border:1px solid #ccc; border-radius:8px;}
+		button{width: 60px; height: 28px; border:1px solid #ccc; border-radius:8px;}
+	</style>
+</head>
+<body>
+	<div class='main'>
+		<h2>전체 학생 리스트</h2>
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>학과</th>
+				<th>학년</th>
+				<th>수정</th>
+				<th>삭제</th>
+			</tr>
+			{% for s in slist %}
+			<tr>
+				<td>{{s.id}}</td>
+				<td><a href="{% url 'students:view' s.name %}">{{s.name}}</a></td>
+				<td>{{s.major}}</td>
+				<td>{{s.grade}}</td>
+				<td><button type='button' onclick=''>수정</button></td>
+				<td><button type='button' onclick='' class='tbtn'>삭제</button></td>
+			</tr>
+			{% endfor %}
+		</table>
+		<button type='button' onclick='location.href="/"' class='btn'>홈으로</button>
+		<button type='button' onclick='location.href="/students/write"' class='btn'>학생 등록</button>
+	</div>
+
+</body>
+</html>
