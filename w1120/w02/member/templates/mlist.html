@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>회원 리스트</title>
+
+	<style>
+		*{margin:0;padding:0;}
+		.main{text-align:center; margin:30px auto;}
+		a{color:inherit;}
+		h2{margin:30px 0;}
+		.search{width: 160px; height:32px; margin-top:30px; padding-left:10px;}
+		table,th,td{border:1px solid black; border-collapse:collapse;}
+		table{width:1200px; margin:30px auto;}
+		th{border-bottom:2px solid #777; background-color:#ededed;}
+		th,td{width:200px; height:45px;}
+		button{width:100px; height: 32px;}
+		.b01{width: 140px; height: 44px; margin-top:20px; border:1px solid #ccc; border-radius:8px;}
+	</style>
+</head>
+<body>
+	<div class='main'>
+		<h2>회원 리스트</h2>
+		{% comment %} <h2>{{mlist}}</h2> {% endcomment %}
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>아이디</th>
+				<th>비밀번호</th>
+				<th>이름</th>
+				<th>닉네임</th>
+				<th>가입일</th>
+			</tr>
+
+		</table>
+		<button onclick="location.href='/'" class='b01'>홈으로</button>
+		<button onclick="location.href='/member/mwrite/'" class='b01'>회원 등록</button>
+	</div>
+
+</body>
+</html>

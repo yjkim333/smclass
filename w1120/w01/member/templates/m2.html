@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>회원옵션</title>
+</head>
+<body>
+	<h2>회원옵션</h2>
+	<form action="{% url 'member:m2' %}" method="post" name="loginFrm">
+		{% csrf_token %}
+		<label>회원권번호</label>
+		<input type="text" name="memberId" id="memberId" value={{Id}} ><br>
+		<label>금액</label>
+		<input type="text" name="money" id="money" value={{Mo}}><br>
+		<label>상품옵션</label>
+		<input type="text" name="option" id="option" value={{Op}}><br>
+		<input type="checkbox" name="saveMember" id="saveMember" value="1" {% if Id %}checked{% endif %}>
+		<label for="saveMember">회원정보 기억</label><br>
+		<input type="submit" value="회원정보 저장">
+	</form>
+	
+</body>
+</html>
+
+<!--
+
+브라우저가 서버로부터 받은 쿠키를 사용자의 웹브라우저에 저장
+웹브라우저가 종료되면 삭제되지만, 만료날짜를 정해둘 시 만료일에 삭제
+
+쿠키(Cookie)
+- 클라이언트(사용자pc) 에 저장
+- text 형식저장
+- 브라우저 종료여뷰 관계없이 만료시점까지
+- 속도가 빠름
+
+세션(Session)
+- 서버에 저장
+- Object 저장
+- 원칙적으로 브라우저 종료시 삭제, 장시간 켜둘 시 지정된 기간 뒤 삭제
+- 보안에 유리
+
+-->
