@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Main</title>
+	<style>
+		a{cursor: pointer; color:inherit;}
+	</style>
+	<script>
+		function logoutBtn(){
+			alert('로그아웃 되었습니다.')
+			location.href='/member/logout/'
+		}
+	</script>
+</head>
+<body>
+	<h2>Main</h2>
+	<ul>
+		{% if not request.session.session_id  %}
+		<h4>로그인을 하셔야 메뉴를 볼 수 있습니다.</h4>
+		<li><a href="/member/login/">로그인 ></a></li><br>
+		{% else %}	
+		<h4>{{request.session.session_nickname}} 님 환영합니다..</h4>
+			<li><a href="/">Home ></a></li><br>
+			<li><a onclick='logoutBtn()'>로그아웃 ></a></li><br>
+			<li><a href="/board/blist/">게시판 ></a></li><br>
+			<li><a href="admin/">Admin 관리자 ></a></li><br>
+		{% endif %}
+	</ul>
+	
+</body>
+</html>
