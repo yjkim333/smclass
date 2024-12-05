@@ -1,11 +1,80 @@
 {% extends "base.html" %}
 {% load static %}
-	<!-- 공통영역삭제 -->
+{% block container-block %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var mySwiper = new Swiper('#mainRoll',{
+			pagination: '#mainThum',
+			paginationClickable: true,
+			slidesPerView: 1,
+			loop: true,
+			autoplay:5000
+		});
 	
-	{% block container-block %}
+		var mySwiper2 = new Swiper('#bestseller',{
+			paginationClickable: true,
+			slidesPerView: 3,
+			loop: true,
+			autoplay:3000
+		});
+	
+		var mySwiper3 = new Swiper('#mainSale',{
+			paginationClickable: true,
+			slidesPerView: 5,
+			loop: true,
+			autoplay:3000
+		});
+		
+		$(window).bind('resize', function() {
+			rollwidth();	
+		});
+	
+		function rollwidth(){
+			var winWidth = $(window).width();
+			if(winWidth < 768){
+				mySwiper2.params.slidesPerView = 1;
+				mySwiper3.params.slidesPerView = 2;
+			}else{
+				mySwiper2.params.slidesPerView = 3;
+				mySwiper3.params.slidesPerView = 5;
+			}
+		}
+		$('.arrowLeft').bind('click', function(e){
+			e.preventDefault()
+			mySwiper2.swipePrev()
+		});
+		$('.arrowRight').bind('click', function(e){
+			e.preventDefault()
+			mySwiper2.swipeNext()
+		});
+	
+		$('.saleLeft').bind('click', function(e){
+			e.preventDefault()
+			mySwiper3.swipePrev()
+		});
+		$('.saleRight').bind('click', function(e){
+			e.preventDefault()
+			mySwiper3.swipeNext()
+		});
+	
+		rollwidth();
+	
+	
+		var myWish = new Swiper('#wishList',{
+			paginationClickable: true,
+			slidesPerView: 3,
+			loop: true,
+			autoplay:3000
+		});
+
+	});	
+	</script>		
+
+
 	<!-- mainSection -->
 	<div id="mainSection">
-		
+
 		<!-- main rolling -->
 		<div id="mainRoll">
 			<div class="swiper-wrapper">
@@ -25,11 +94,11 @@
 			<div id="mainThum"></div>
 		</div>
 		<!-- //main rolling -->
-		
+
 		
 		<!-- main contents -->
 		<div id="mainContents">
-			
+
 			<!-- Best seller -->
 			<div class="mtitle"><h2>JARDIN BEST SELLER</h2></div>
 			<div id="bestseller">
@@ -56,7 +125,7 @@
 				<a class="arrowRight" href="#"></a>
 			</div>
 			<!-- //Best seller -->
-			
+
 			<!-- Review -->
 			<div class="mtitle"></div>
 			<div id="mainReview">
@@ -75,7 +144,7 @@
 				</ul>
 			</div>
 			<!-- //Review -->
-			
+
 			<!-- new goods -->
 			<div class="mtitle"></div>
 			<div id="newGoods">
@@ -99,7 +168,7 @@
 						</ul>
 						<div class="img"><img src="/static/images/img/img_md_choice01.jpg" alt="MD CHOICE 상품" /></div>
 					</div>
-					
+
 					<div class="two">
 						<ul>
 							<li class="name">쟈뎅 바리스타 벨벳 에스프레소원두커피</li>
@@ -153,7 +222,7 @@
 				<a class="saleRight" href="#"></a>
 			</div>
 			<!-- //sale -->
-			
+	
 			<!-- brand -->
 			<div class="mtitle"></div>
 			<div id="mainBrand">
@@ -191,9 +260,9 @@
 					</li>
 				</ul>
 			</div>
-			
+
 			<!-- //brand -->
-			
+
 			<!-- notice -->
 			<div class="mtitle"></div>
 			<div id="noticeBLock">
@@ -227,7 +296,7 @@
 				</ul>
 			</div>
 			<!-- //notice -->
-			
+
 			<!-- quickmenu -->
 			<div id="quick">
 				<div class="cart"><a href="#">장바구니</a></div>
@@ -237,35 +306,35 @@
 					<div class="list">
 						<ul>	
 							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-								<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-									<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-										<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-											<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-												<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-													<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-														<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-															<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
 							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-								<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-									<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-										<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-											<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-												<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
-												</ul>
-											</div>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+							<li><a href="#"><img src="/static/images/img/sample_wish.gif" alt="" /></a>
+						</ul>
+					</div>
 
-											<div class="total">
-												<a href="#none" class="wishLeft"><img src="/static/images/btn/wish_left.gif" alt="" /></a>
-												<span class="page">1</span> / <span class="sum">3</span>
-												<a href="#none" class="wishRight"><img src="/static/images/btn/wish_right.gif" alt="" /></a>
-											</div>
+					<div class="total">
+						<a href="#none" class="wishLeft"><img src="/static/images/btn/wish_left.gif" alt="" /></a>
+						 <span class="page">1</span> / <span class="sum">3</span>
+						<a href="#none" class="wishRight"><img src="/static/images/btn/wish_right.gif" alt="" /></a>
+					</div>
 
-										</div>
-										
-										<div class="top"><a href="#">TOP&nbsp;&nbsp;<img src="/static/images/ico/ico_top.gif" alt="" /></a></div>
-									</div>
-									<script type="text/javascript">
-										$(function(){
+				</div>
+
+				<div class="top"><a href="#">TOP&nbsp;&nbsp;<img src="/static/images/ico/ico_top.gif" alt="" /></a></div>
+			</div>
+			<script type="text/javascript">
+			$(function(){
 				
 				$(window).scroll(function(){
 					var tg = $("div#quick");
@@ -284,18 +353,15 @@
 						}
 					}
 				});
-				
+
 			});
-		</script>
+			</script>
 			<!-- //quickmenu -->
-			
+
 		</div>
 		<!-- //main contents -->
-		
+
 	</div>
 	<!-- //mainSection -->
 
-	
 	{% endblock container-block %}
-
-	<!-- 공통영역(footer) s삭제 -->

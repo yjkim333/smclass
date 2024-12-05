@@ -44,9 +44,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'w01.urls'
 
-# 템플릿 경로 설정 -> 기본 경로에서 templates 폴더를 모두 사용
+# 탬플릿 경로설정 - 기본경로에서 templates폴더를 모두 사용
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
